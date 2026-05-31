@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import { ProductGrid } from '@/components/store/ProductGrid';
+
+export const dynamic = 'force-dynamic';
 import { ProductDetailClient } from './ProductDetailClient';
 import type { Metadata } from 'next';
 import type { StoreProduct } from '@/types/store';

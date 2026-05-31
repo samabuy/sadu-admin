@@ -3,6 +3,8 @@ import { createClient } from '@/lib/supabase/server';
 import { ProductGrid } from '@/components/store/ProductGrid';
 import type { StoreProduct } from '@/types/store';
 
+export const dynamic = 'force-dynamic';
+
 const PRODUCT_SELECT =
   'id,name_en,name_ar,slug,category,scent_family,gender,base_price,image_url,is_active,is_best_seller,is_new_arrival,is_limited_edition,rating,review_count,description_en,description_ar,scent_story_en,scent_story_ar,notes,sizes,occasion,season';
 

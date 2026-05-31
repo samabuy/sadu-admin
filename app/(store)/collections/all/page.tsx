@@ -2,6 +2,7 @@ import { createClient } from '@/lib/supabase/server';
 import { CollectionClient } from './CollectionClient';
 import type { Metadata } from 'next';
 
+export const dynamic = 'force-dynamic';
 export const metadata: Metadata = { title: 'All Products | SADU' };
 
 const PRODUCT_SELECT =
