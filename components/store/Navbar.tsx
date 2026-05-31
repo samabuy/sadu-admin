@@ -54,7 +54,7 @@ export function Navbar() {
           {/* Logo */}
           <Link href="/" style={{ textDecoration: 'none', flexShrink: 0, display: 'flex', alignItems: 'center' }}>
             <Image
-              src="/logos/SADU314_transparent_256x256.png"
+              src="/logos/sadu-logo.png"
               alt="SADU"
               width={48}
               height={48}

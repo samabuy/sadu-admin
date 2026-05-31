@@ -4,7 +4,6 @@ import { useState, useMemo } from 'react';
 import { ProductGrid } from '@/components/store/ProductGrid';
 import { useLangStore } from '@/store/langStore';
 import type { StoreProduct } from '@/types/store';
-import { SlidersHorizontal, X } from 'lucide-react';
 
 type SortKey = 'newest' | 'price-asc' | 'price-desc' | 'rating';
 
@@ -30,15 +29,16 @@ function getPrice(p: StoreProduct) {
 
 export function CollectionClient({ products, title, titleAr, lockGender }: Props) {
   const lang = useLangStore((s) => s.lang);
-  const [gender, setGender] = useState(lockGender ?? 'all');
+  // When lockGender is set the server already pre-filtered; keep client at 'all'
+  const [gender, setGender] = useState('all');
   const [sort, setSort] = useState<SortKey>('newest');
   const [search, setSearch] = useState('');
-  const [filtersOpen, setFiltersOpen] = useState(false);
 
   const filtered = useMemo(() => {
     let list = products;
 
-    if (gender !== 'all') list = list.filter((p) => p.gender === gender);
+    // Only apply client-side gender filter on the "all" page (no lockGender)
+    if (!lockGender && gender !== 'all') list = list.filter((p) => p.gender === gender);
     if (search.trim()) {
       const q = search.toLowerCase();
       list = list.filter(
@@ -105,28 +105,30 @@ export function CollectionClient({ products, title, titleAr, lockGender }: Props
           }}
         />
 
-        {/* Gender pills */}
-        <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
-          {GENDERS.map((g) => (
-            <button
-              key={g}
-              onClick={() => setGender(g)}
-              style={{
-                padding: '7px 16px',
-                borderRadius: 6,
-                fontSize: 12,
-                fontWeight: gender === g ? 600 : 400,
-                backgroundColor: gender === g ? 'var(--gold)' : 'rgba(201,163,91,0.06)',
-                color: gender === g ? '#000' : 'var(--text-secondary)',
-                border: gender === g ? 'none' : '1px solid rgba(201,163,91,0.15)',
-                cursor: 'pointer',
-                textTransform: 'capitalize',
-              }}
-            >
-              {g === 'all' ? 'All' : g}
-            </button>
-          ))}
-        </div>
+        {/* Gender pills — only on the "All" page */}
+        {!lockGender && (
+          <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+            {GENDERS.map((g) => (
+              <button
+                key={g}
+                onClick={() => setGender(g)}
+                style={{
+                  padding: '7px 16px',
+                  borderRadius: 6,
+                  fontSize: 12,
+                  fontWeight: gender === g ? 600 : 400,
+                  backgroundColor: gender === g ? 'var(--gold)' : 'rgba(201,163,91,0.06)',
+                  color: gender === g ? '#000' : 'var(--text-secondary)',
+                  border: gender === g ? 'none' : '1px solid rgba(201,163,91,0.15)',
+                  cursor: 'pointer',
+                  textTransform: 'capitalize',
+                }}
+              >
+                {g === 'all' ? 'All' : g}
+              </button>
+            ))}
+          </div>
+        )}
 
         {/* Sort */}
         <select

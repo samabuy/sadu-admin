@@ -48,7 +48,7 @@ export function Footer() {
           <div>
             <Link href="/" style={{ display: 'inline-block', marginBottom: 12 }}>
               <Image
-                src="/logos/SADU314_transparent_256x256.png"
+                src="/logos/sadu-logo.png"
                 alt="SADU"
                 width={52}
                 height={52}
