@@ -26,7 +26,7 @@ export interface StoreProduct {
   name_en: string;
   name_ar: string;
   slug: string;
-  brand: string | null;
+
   category: string;
   scent_family: string;
   gender: string;

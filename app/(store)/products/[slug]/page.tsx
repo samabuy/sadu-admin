@@ -8,7 +8,7 @@ import type { Metadata } from 'next';
 import type { StoreProduct } from '@/types/store';
 
 const PRODUCT_SELECT =
-  'id,name_en,name_ar,slug,brand,category,scent_family,gender,base_price,image_url,is_active,is_best_seller,is_new_arrival,is_limited_edition,rating,review_count,description_en,description_ar,scent_story_en,scent_story_ar,notes,sizes,occasion,season';
+  'id,name_en,name_ar,slug,category,scent_family,gender,base_price,image_url,is_active,is_best_seller,is_new_arrival,is_limited_edition,rating,review_count,description_en,description_ar,scent_story_en,scent_story_ar,notes,sizes,occasion,season';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -160,22 +160,6 @@ export default async function ProductPage({ params }: Props) {
 
         {/* Details */}
         <div>
-          {/* Brand */}
-          {product.brand && (
-            <p
-              style={{
-                fontSize: 11,
-                fontWeight: 700,
-                letterSpacing: '0.15em',
-                textTransform: 'uppercase',
-                color: 'var(--text-secondary)',
-                marginBottom: 10,
-              }}
-            >
-              {product.brand}
-            </p>
-          )}
-
           {/* Arabic name */}
           <h1
             style={{

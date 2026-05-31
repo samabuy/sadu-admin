@@ -183,20 +183,7 @@ export function ProductCard({ product }: Props) {
 
       {/* Info */}
       <div style={{ padding: '14px 16px' }}>
-        {product.brand && (
-          <p
-            style={{
-              color: 'var(--text-secondary)',
-              fontSize: 10,
-              fontWeight: 600,
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase',
-              marginBottom: 5,
-            }}
-          >
-            {product.brand}
-          </p>
-        )}
+
         <p
           style={{
             fontFamily:

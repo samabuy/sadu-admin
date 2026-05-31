@@ -45,7 +45,6 @@ export function CollectionClient({ products, title, titleAr, lockGender }: Props
         (p) =>
           p.name_en.toLowerCase().includes(q) ||
           p.name_ar.includes(q) ||
-          (p.brand ?? '').toLowerCase().includes(q) ||
           p.scent_family.toLowerCase().includes(q),
       );
     }
