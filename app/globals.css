@@ -29,3 +29,17 @@ body {
 ::-webkit-scrollbar-track { background: var(--card-bg); }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--text-secondary); }
+
+/* Store theme overrides — scoped so admin styles are unaffected */
+[data-store] {
+  --main-bg: #080706;
+  --card-bg: #12100E;
+  --border: rgba(201, 163, 91, 0.2);
+  --sidebar-bg: #080706;
+}
+
+/* Shimmer animation for skeleton loaders */
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
