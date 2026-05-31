@@ -64,34 +64,32 @@ export default async function HomePage() {
         />
 
         <div style={{ textAlign: 'center', padding: '80px 24px', maxWidth: 760, position: 'relative', zIndex: 1 }}>
-          {/* Arabic overline */}
+          {/* Arabic headline */}
           <p
             style={{
               fontFamily: "'Cairo', sans-serif",
-              fontSize: 14,
+              fontSize: 18,
               fontWeight: 600,
               color: 'var(--gold)',
-              letterSpacing: '0.2em',
-              textTransform: 'uppercase',
-              marginBottom: 20,
-              opacity: 0.85,
+              marginBottom: 16,
+              opacity: 0.9,
             }}
           >
-            مُستوحى من تراث الصحراء
+            أرقى العطور العالمية... تُوصَّل إليك في الإمارات
           </p>
 
           <h1
             style={{
               fontFamily: "'Cormorant Garamond', serif",
-              fontSize: 'clamp(44px, 8vw, 88px)',
+              fontSize: 'clamp(38px, 6vw, 72px)',
               fontWeight: 600,
               color: 'var(--text-primary)',
-              lineHeight: 1.1,
+              lineHeight: 1.15,
               letterSpacing: '-0.01em',
-              marginBottom: 28,
+              marginBottom: 24,
             }}
           >
-            SADU
+            Premium International Fragrances
           </h1>
 
           <p
@@ -99,13 +97,12 @@ export default async function HomePage() {
               fontSize: 16,
               color: 'var(--text-secondary)',
               lineHeight: 1.8,
-              marginBottom: 48,
-              maxWidth: 520,
+              maxWidth: 560,
               margin: '0 auto 48px',
             }}
           >
-            Luxury Arabian perfumery rooted in the heritage of the UAE. Each fragrance
-            is a thread in a tapestry of desert elegance.
+            Discover the world&apos;s finest fragrances — from Dior and Tom Ford to Xerjoff and
+            Amouage — delivered to your door across all 7 Emirates.
           </p>
 
           <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -352,7 +349,7 @@ export default async function HomePage() {
           }}
         >
           Earn points with every purchase. Unlock exclusive tiers — from Silver Thread to
-          Gold Loom — with benefits as rare as our fragrances.
+          Gold Loom — with benefits as rare as the fragrances we carry.
         </p>
         <Link
           href="/sadu-club"

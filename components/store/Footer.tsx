@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { MessageCircle } from 'lucide-react';
 
 const collections = [
@@ -45,18 +46,14 @@ export function Footer() {
         >
           {/* Brand */}
           <div>
-            <p
-              style={{
-                fontFamily: "'Cormorant Garamond', serif",
-                fontSize: 24,
-                fontWeight: 600,
-                color: 'var(--gold)',
-                letterSpacing: '0.05em',
-                marginBottom: 12,
-              }}
-            >
-              SADU
-            </p>
+            <Link href="/" style={{ display: 'inline-block', marginBottom: 12 }}>
+              <Image
+                src="/logos/SADU314_transparent_256x256.png"
+                alt="SADU"
+                width={52}
+                height={52}
+              />
+            </Link>
             <p
               style={{
                 color: 'var(--text-secondary)',
@@ -65,7 +62,7 @@ export function Footer() {
                 marginBottom: 20,
               }}
             >
-              Luxury Arabian perfumery rooted in the heritage of the UAE.
+              Premium international fragrances — delivered across the UAE.
             </p>
             <a
               href="https://wa.me/971500000000"

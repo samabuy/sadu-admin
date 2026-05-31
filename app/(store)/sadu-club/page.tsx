@@ -151,7 +151,7 @@ export default function SaduClubPage() {
               marginBottom: 36,
             }}
           >
-            A loyalty programme as rare as the fragrances we craft. Earn points
+            A loyalty programme as rare as the fragrances we carry. Earn points
             with every purchase and ascend through five exclusive tiers — each
             unlocking privileges woven from heritage and luxury.
           </p>

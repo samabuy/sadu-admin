@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { ShoppingBag, User, Menu, X } from 'lucide-react';
 import { useCartStore } from '@/store/cartStore';
@@ -51,18 +52,14 @@ export function Navbar() {
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 20px' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 64 }}>
           {/* Logo */}
-          <Link href="/" style={{ textDecoration: 'none', flexShrink: 0 }}>
-            <span
-              style={{
-                fontFamily: "'Cormorant Garamond', serif",
-                fontSize: 22,
-                fontWeight: 600,
-                color: 'var(--gold)',
-                letterSpacing: '0.06em',
-              }}
-            >
-              SADU
-            </span>
+          <Link href="/" style={{ textDecoration: 'none', flexShrink: 0, display: 'flex', alignItems: 'center' }}>
+            <Image
+              src="/logos/SADU314_transparent_256x256.png"
+              alt="SADU"
+              width={48}
+              height={48}
+              priority
+            />
           </Link>
 
           {/* Desktop nav */}
