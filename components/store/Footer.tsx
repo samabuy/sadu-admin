@@ -55,7 +55,7 @@ export function Footer() {
                 marginBottom: 12,
               }}
             >
-              SADU 314
+              SADU
             </p>
             <p
               style={{
@@ -177,7 +177,7 @@ export function Footer() {
           }}
         >
           <p style={{ color: 'var(--text-secondary)', fontSize: 12 }}>
-            © {new Date().getFullYear()} SADU 314. All rights reserved.
+            © {new Date().getFullYear()} SADU. All rights reserved.
           </p>
           <p style={{ color: 'var(--text-secondary)', fontSize: 12 }}>Made in the UAE 🇦🇪</p>
         </div>

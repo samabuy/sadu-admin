@@ -73,7 +73,7 @@ const TIERS = [
       'All Pearl Pattern benefits',
       '20% lifetime discount',
       'Custom-blended private fragrance',
-      'Invitation to SADU 314 atelier tours',
+      'Invitation to SADU atelier tours',
       'First access to limited editions',
       'Complimentary annual gift set',
     ],
@@ -402,7 +402,7 @@ export default function SaduClubPage() {
               marginBottom: 14,
             }}
           >
-            Get the SADU 314 App
+            Get the SADU App
           </h2>
           <p
             style={{
@@ -414,7 +414,7 @@ export default function SaduClubPage() {
             }}
           >
             Track your points, browse exclusive member drops, and manage your
-            orders — all from the SADU 314 mobile app.
+            orders — all from the SADU mobile app.
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
             <div

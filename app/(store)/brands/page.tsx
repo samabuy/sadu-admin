@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = { title: 'Brands | SADU 314' };
+export const metadata: Metadata = { title: 'Brands | SADU' };
 
 export default async function BrandsPage() {
   const supabase = await createClient();

@@ -61,7 +61,7 @@ export function Navbar() {
                 letterSpacing: '0.06em',
               }}
             >
-              SADU 314
+              SADU
             </span>
           </Link>
 

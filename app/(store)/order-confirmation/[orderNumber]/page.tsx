@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { CheckCircle, MessageCircle, Package } from 'lucide-react';
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = { title: 'Order Confirmed | SADU 314' };
+export const metadata: Metadata = { title: 'Order Confirmed | SADU' };
 
 interface Props {
   params: Promise<{ orderNumber: string }>;

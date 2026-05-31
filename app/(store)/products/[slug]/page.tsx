@@ -23,10 +23,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     .eq('slug', slug)
     .single();
 
-  if (!data) return { title: 'Product | SADU 314' };
+  if (!data) return { title: 'Product | SADU' };
   return {
-    title: `${data.name_en} | SADU 314`,
-    description: data.description_en ?? `${data.name_en} — Luxury Arabian Perfume by SADU 314`,
+    title: `${data.name_en} | SADU`,
+    description: data.description_en ?? `${data.name_en} — Luxury Arabian Perfume by SADU`,
   };
 }
 
@@ -139,7 +139,7 @@ export default async function ProductPage({ params }: Props) {
                   letterSpacing: '0.08em',
                 }}
               >
-                SADU 314
+                SADU
               </span>
             </div>
           )}

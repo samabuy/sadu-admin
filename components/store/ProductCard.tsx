@@ -97,7 +97,7 @@ export function ProductCard({ product }: Props) {
                 letterSpacing: '0.08em',
               }}
             >
-              SADU 314
+              SADU
             </span>
           </div>
         )}

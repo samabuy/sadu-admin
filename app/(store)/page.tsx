@@ -91,7 +91,7 @@ export default async function HomePage() {
               marginBottom: 28,
             }}
           >
-            SADU 314
+            SADU
           </h1>
 
           <p

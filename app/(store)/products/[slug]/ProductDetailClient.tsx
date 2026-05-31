@@ -271,7 +271,7 @@ export function ProductDetailClient({ product }: Props) {
               </p>
             ) : (
               <p style={{ color: 'var(--text-secondary)', fontSize: 14 }}>
-                A signature fragrance from SADU 314.
+                A signature fragrance from SADU.
               </p>
             )}
             {product.scent_story_en && (
