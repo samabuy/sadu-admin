@@ -99,7 +99,7 @@ export function Footer() {
                 marginBottom: 16,
               }}
             >
-              Collections
+              COLLECTIONS
             </p>
             {collections.map((l) => (
               <Link key={l.href} href={l.href} style={linkStyle}>
@@ -120,7 +120,7 @@ export function Footer() {
                 marginBottom: 16,
               }}
             >
-              Services
+              SERVICES
             </p>
             {services.map((l) => (
               <Link key={l.href} href={l.href} style={linkStyle}>
@@ -141,7 +141,7 @@ export function Footer() {
                 marginBottom: 16,
               }}
             >
-              Contact
+              CONTACT
             </p>
             <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
               UAE — All 7 Emirates
