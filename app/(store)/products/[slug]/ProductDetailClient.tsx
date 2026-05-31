@@ -53,9 +53,9 @@ export function ProductDetailClient({ product }: Props) {
     `أريد طلب: ${product.name_ar} - ${selectedSize?.label ?? ''} (${lang === 'ar' ? 'الكمية' : 'Qty'}: ${qty})`,
   );
 
-  const topNotes = (product.notes ?? []).filter((n) => n.type === 'top');
-  const heartNotes = (product.notes ?? []).filter((n) => n.type === 'heart');
-  const baseNotes = (product.notes ?? []).filter((n) => n.type === 'base');
+  const topNotes = (product.product_notes ?? []).filter((n) => n.note_type === 'top');
+  const heartNotes = (product.product_notes ?? []).filter((n) => n.note_type === 'heart');
+  const baseNotes = (product.product_notes ?? []).filter((n) => n.note_type === 'base');
 
   return (
     <div>
@@ -316,7 +316,7 @@ export function ProductDetailClient({ product }: Props) {
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
                     {notes.map((n) => (
                       <span
-                        key={n.nameEn}
+                        key={n.note_name_en}
                         style={{
                           padding: '4px 12px',
                           borderRadius: 20,
@@ -326,7 +326,7 @@ export function ProductDetailClient({ product }: Props) {
                           fontSize: 12,
                         }}
                       >
-                        {lang === 'ar' ? n.nameAr : n.nameEn}
+                        {lang === 'ar' ? n.note_name_ar : n.note_name_en}
                       </span>
                     ))}
                   </div>

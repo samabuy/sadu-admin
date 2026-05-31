@@ -9,8 +9,15 @@ import { ProductDetailClient } from './ProductDetailClient';
 import type { Metadata } from 'next';
 import type { StoreProduct } from '@/types/store';
 
-const PRODUCT_SELECT =
-  'id,name_en,name_ar,slug,category,scent_family,gender,base_price,image_url,is_active,is_best_seller,is_new_arrival,is_limited_edition,rating,review_count,description_en,description_ar,scent_story_en,scent_story_ar,notes,sizes,occasion,season';
+const PRODUCT_SELECT = `
+  id, name_en, name_ar, slug, description_en, description_ar,
+  scent_story_en, scent_story_ar, base_price, sale_price,
+  category, scent_family, gender, occasion, strength,
+  longevity, projection, season, sizes, image_url, gallery_urls,
+  is_best_seller, is_new_arrival, is_limited_edition, is_active,
+  rating, review_count, created_at,
+  product_notes(id, note_type, note_name_en, note_name_ar)
+`;
 
 interface Props {
   params: Promise<{ slug: string }>;
