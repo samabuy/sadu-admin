@@ -21,7 +21,7 @@ export default async function MenPage() {
     .from('products')
     .select(PRODUCT_SELECT)
     .eq('is_active', true)
-    .in('gender', ['men', 'unisex'])
+    .eq('gender', 'men')
     .order('created_at', { ascending: false });
 
   return (
