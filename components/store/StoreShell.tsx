@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useLangStore } from '@/store/langStore';
+import { LanguageProvider } from './LanguageContext';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
 
@@ -18,21 +19,23 @@ export function StoreShell({ children }: { children: React.ReactNode }) {
     : "'Cormorant Garamond', 'Inter', sans-serif";
 
   return (
-    <div
-      data-store=""
-      dir={dir}
-      style={{
-        minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        backgroundColor: '#080706',
-        color: 'var(--text-primary)',
-        fontFamily,
-      }}
-    >
-      <Navbar />
-      <main style={{ flex: 1 }}>{children}</main>
-      <Footer />
-    </div>
+    <LanguageProvider>
+      <div
+        data-store=""
+        dir={dir}
+        style={{
+          minHeight: '100vh',
+          display: 'flex',
+          flexDirection: 'column',
+          backgroundColor: '#080706',
+          color: 'var(--text-primary)',
+          fontFamily,
+        }}
+      >
+        <Navbar />
+        <main style={{ flex: 1 }}>{children}</main>
+        <Footer />
+      </div>
+    </LanguageProvider>
   );
 }
