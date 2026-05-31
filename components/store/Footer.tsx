@@ -1,20 +1,23 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { MessageCircle } from 'lucide-react';
+import { useLangStore } from '@/store/langStore';
 
 const collections = [
-  { label: 'All Products', href: '/collections/all' },
-  { label: 'Men', href: '/collections/men' },
-  { label: 'Women', href: '/collections/women' },
-  { label: 'Unisex', href: '/collections/unisex' },
-  { label: 'New Arrivals', href: '/collections/new-arrivals' },
+  { en: 'All Products', ar: 'جميع المنتجات', href: '/collections/all' },
+  { en: 'Men', ar: 'رجال', href: '/collections/men' },
+  { en: 'Women', ar: 'نساء', href: '/collections/women' },
+  { en: 'Unisex', ar: 'للجميع', href: '/collections/unisex' },
+  { en: 'New Arrivals', ar: 'وصل حديثاً', href: '/collections/new-arrivals' },
 ];
 
 const services = [
-  { label: 'Track Order', href: '/track-order' },
-  { label: 'SADU Club', href: '/sadu-club' },
-  { label: 'My Account', href: '/account' },
-  { label: 'Brands', href: '/brands' },
+  { en: 'Track Order', ar: 'تتبع الطلب', href: '/track-order' },
+  { en: 'SADU Club', ar: 'نادي سدو', href: '/sadu-club' },
+  { en: 'My Account', ar: 'حسابي', href: '/account' },
+  { en: 'Brands', ar: 'الماركات', href: '/brands' },
 ];
 
 const linkStyle: React.CSSProperties = {
@@ -27,6 +30,9 @@ const linkStyle: React.CSSProperties = {
 };
 
 export function Footer() {
+  const lang = useLangStore((s) => s.lang);
+  const t = (ar: string, en: string) => lang === 'ar' ? ar : en;
+
   return (
     <footer
       style={{
@@ -62,7 +68,7 @@ export function Footer() {
                 marginBottom: 20,
               }}
             >
-              Premium international fragrances — delivered across the UAE.
+              {t('أفضل العطور العالمية — تُوصَّل لجميع أنحاء الإمارات.', 'Premium international fragrances — delivered across the UAE.')}
             </p>
             <a
               href="https://wa.me/971500000000"
@@ -99,11 +105,11 @@ export function Footer() {
                 marginBottom: 16,
               }}
             >
-              COLLECTIONS
+              {t('المجموعات', 'COLLECTIONS')}
             </p>
             {collections.map((l) => (
               <Link key={l.href} href={l.href} style={linkStyle}>
-                {l.label}
+                {t(l.ar, l.en)}
               </Link>
             ))}
           </div>
@@ -120,11 +126,11 @@ export function Footer() {
                 marginBottom: 16,
               }}
             >
-              SERVICES
+              {t('الخدمات', 'SERVICES')}
             </p>
             {services.map((l) => (
               <Link key={l.href} href={l.href} style={linkStyle}>
-                {l.label}
+                {t(l.ar, l.en)}
               </Link>
             ))}
           </div>
@@ -141,7 +147,7 @@ export function Footer() {
                 marginBottom: 16,
               }}
             >
-              CONTACT
+              {t('تواصل معنا', 'CONTACT')}
             </p>
             <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
               UAE — All 7 Emirates
@@ -172,7 +178,7 @@ export function Footer() {
           }}
         >
           <p style={{ color: 'var(--text-secondary)', fontSize: 12 }}>
-            © {new Date().getFullYear()} SADU. All rights reserved.
+            © {new Date().getFullYear()} SADU. {t('جميع الحقوق محفوظة', 'All rights reserved')}.
           </p>
           <p style={{ color: 'var(--text-secondary)', fontSize: 12 }}>Made in the UAE 🇦🇪</p>
         </div>

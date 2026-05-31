@@ -1,7 +1,6 @@
-import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
-import { ProductGrid } from '@/components/store/ProductGrid';
 import { HeroSlider } from '@/components/store/HeroSlider';
+import { HomeContent } from '@/components/store/HomeContent';
 import type { StoreProduct } from '@/types/store';
 
 export const dynamic = 'force-dynamic';
@@ -15,12 +14,6 @@ const PRODUCT_SELECT = `
   rating, review_count, created_at,
   product_notes(id, note_type, note_name_en, note_name_ar)
 `;
-
-const GENDER_TILES = [
-  { label: 'Men Perfumes', labelAr: 'عطور الرجال', href: '/collections/men', icon: '♂' },
-  { label: 'Women Perfumes', labelAr: 'عطور النساء', href: '/collections/women', icon: '♀' },
-  { label: 'Unisex', labelAr: 'للجميع', href: '/collections/unisex', icon: '✦' },
-];
 
 export default async function HomePage() {
   const supabase = await createClient();
@@ -50,68 +43,11 @@ export default async function HomePage() {
 
   return (
     <div>
-      {/* Hero Slider */}
       <HeroSlider />
-
-      {/* Gender Tiles */}
-      <section style={{ padding: '48px 24px 32px', maxWidth: 1280, margin: '0 auto' }}>
-        <div className="grid grid-cols-3 gap-4">
-          {GENDER_TILES.map((tile) => (
-            <Link
-              key={tile.href}
-              href={tile.href}
-              style={{
-                display: 'flex', flexDirection: 'column', alignItems: 'center',
-                justifyContent: 'center', padding: '32px 16px',
-                backgroundColor: '#12100E',
-                border: '1px solid rgba(201,163,91,0.18)',
-                borderRadius: 8, textDecoration: 'none', textAlign: 'center',
-                gap: 8, transition: 'border-color 0.2s, background-color 0.2s',
-              }}
-            >
-              <span style={{ fontSize: 22, color: '#C9A84C', opacity: 0.75 }}>{tile.icon}</span>
-              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 19, fontWeight: 600, color: '#F6EFE2', marginBottom: 2 }}>
-                {tile.label}
-              </p>
-              <p style={{ fontFamily: "'Cairo', sans-serif", fontSize: 12, color: 'rgba(246,239,226,0.45)' }}>
-                {tile.labelAr}
-              </p>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      {/* Best Stock Deals */}
-      <section style={{ padding: '16px 24px 64px', maxWidth: 1280, margin: '0 auto' }}>
-        <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 24, flexWrap: 'wrap', gap: 12 }}>
-          <div>
-            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 30, fontWeight: 600, color: '#F6EFE2', marginBottom: 4 }}>
-              Best Stock Deals
-            </h2>
-            <p style={{ color: 'rgba(246,239,226,0.38)', fontSize: 13 }}>Top picks from our latest collection</p>
-          </div>
-          <Link href="/collections/all" style={{ color: '#C9A84C', fontSize: 13, textDecoration: 'none', fontWeight: 500 }}>
-            View all →
-          </Link>
-        </div>
-        <ProductGrid products={(deals ?? []) as unknown as StoreProduct[]} />
-      </section>
-
-      {/* Test Your Favorite Scents */}
-      <section style={{ padding: '0 24px 80px', maxWidth: 1280, margin: '0 auto' }}>
-        <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 24, flexWrap: 'wrap', gap: 12 }}>
-          <div>
-            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 30, fontWeight: 600, color: '#C9A84C', marginBottom: 4 }}>
-              Test Your Favorite Scents
-            </h2>
-            <p style={{ color: 'rgba(246,239,226,0.38)', fontSize: 13 }}>Discover fresh and vibrant fragrances</p>
-          </div>
-          <Link href="/collections/all" style={{ color: '#C9A84C', fontSize: 13, textDecoration: 'none', fontWeight: 500 }}>
-            Explore all →
-          </Link>
-        </div>
-        <ProductGrid products={(scentProducts ?? []) as unknown as StoreProduct[]} />
-      </section>
+      <HomeContent
+        deals={(deals ?? []) as unknown as StoreProduct[]}
+        scentProducts={(scentProducts ?? []) as unknown as StoreProduct[]}
+      />
     </div>
   );
 }

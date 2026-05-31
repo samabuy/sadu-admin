@@ -11,17 +11,23 @@ export function StoreShell({ children }: { children: React.ReactNode }) {
 
   useEffect(() => setMounted(true), []);
 
+  const activeLang = mounted ? lang : 'ar';
+  const dir = activeLang === 'ar' ? 'rtl' : 'ltr';
+  const fontFamily = activeLang === 'ar'
+    ? "'Cairo', sans-serif"
+    : "'Cormorant Garamond', 'Inter', sans-serif";
+
   return (
     <div
       data-store=""
-      dir={mounted && lang === 'ar' ? 'rtl' : 'ltr'}
+      dir={dir}
       style={{
         minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column',
         backgroundColor: '#080706',
         color: 'var(--text-primary)',
-        fontFamily: "'Inter', -apple-system, sans-serif",
+        fontFamily,
       }}
     >
       <Navbar />

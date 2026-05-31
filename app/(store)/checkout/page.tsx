@@ -47,11 +47,14 @@ const labelStyle: React.CSSProperties = {
   marginBottom: 6,
 };
 
-const STEPS = ['Contact', 'Delivery', 'Payment'];
+const STEPS_EN = ['Contact', 'Delivery', 'Payment'];
+const STEPS_AR = ['التواصل', 'التوصيل', 'الدفع'];
 
 export default function CheckoutPage() {
   const router = useRouter();
   const lang = useLangStore((s) => s.lang);
+  const t = (ar: string, en: string) => lang === 'ar' ? ar : en;
+  const STEPS = lang === 'ar' ? STEPS_AR : STEPS_EN;
   const { items, getTotal, clearCart } = useCartStore();
   const [mounted, setMounted] = useState(false);
   const [step, setStep] = useState(0);
@@ -158,7 +161,7 @@ export default function CheckoutPage() {
           marginBottom: 36,
         }}
       >
-        {lang === 'ar' ? 'إتمام الطلب' : 'Checkout'}
+        {t('إتمام الشراء', 'Checkout')}
       </h1>
 
       {/* Step indicator */}
@@ -248,20 +251,20 @@ export default function CheckoutPage() {
                   marginBottom: 20,
                 }}
               >
-                Contact Information
+                {t('بيانات التواصل', 'Contact Information')}
               </h2>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                 <div>
-                  <label style={labelStyle}>Full Name *</label>
+                  <label style={labelStyle}>{t('الاسم الكامل', 'Full Name')} *</label>
                   <input
                     style={inputStyle}
-                    placeholder="Your full name"
+                    placeholder={t('اسمك الكامل', 'Your full name')}
                     value={contact.name}
                     onChange={(e) => setContact({ ...contact, name: e.target.value })}
                   />
                 </div>
                 <div>
-                  <label style={labelStyle}>Phone Number *</label>
+                  <label style={labelStyle}>{t('رقم الهاتف', 'Phone Number')} *</label>
                   <input
                     style={inputStyle}
                     placeholder="+971 50 000 0000"
@@ -270,7 +273,7 @@ export default function CheckoutPage() {
                   />
                 </div>
                 <div>
-                  <label style={labelStyle}>Email Address *</label>
+                  <label style={labelStyle}>{t('البريد الإلكتروني', 'Email Address')} *</label>
                   <input
                     type="email"
                     style={inputStyle}
@@ -302,7 +305,7 @@ export default function CheckoutPage() {
                   marginBottom: 20,
                 }}
               >
-                Delivery Details
+                {t('عنوان التوصيل', 'Delivery Details')}
               </h2>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                 <div>
@@ -327,7 +330,7 @@ export default function CheckoutPage() {
                   />
                 </div>
                 <div>
-                  <label style={labelStyle}>Full Address *</label>
+                  <label style={labelStyle}>{t('العنوان الكامل', 'Full Address')} *</label>
                   <textarea
                     rows={3}
                     style={{ ...inputStyle, resize: 'vertical' }}
@@ -369,7 +372,7 @@ export default function CheckoutPage() {
                   marginBottom: 20,
                 }}
               >
-                Payment Method
+                {t('طريقة الدفع', 'Payment Method')}
               </h2>
 
               {/* COD (active) */}
@@ -401,7 +404,7 @@ export default function CheckoutPage() {
                 </div>
                 <div>
                   <p style={{ color: 'var(--text-primary)', fontSize: 14, fontWeight: 600 }}>
-                    Cash on Delivery
+                    {t('الدفع عند الاستلام', 'Cash on Delivery')}
                   </p>
                   <p style={{ color: 'var(--text-secondary)', fontSize: 12 }}>
                     Pay when your order arrives
@@ -474,7 +477,7 @@ export default function CheckoutPage() {
                   cursor: 'pointer',
                 }}
               >
-                Back
+                {t('رجوع', 'Back')}
               </button>
             )}
 
@@ -497,7 +500,7 @@ export default function CheckoutPage() {
                   gap: 6,
                 }}
               >
-                Continue <ChevronRight size={15} />
+                {t('التالي', 'Continue')} <ChevronRight size={15} />
               </button>
             ) : (
               <button
@@ -520,9 +523,9 @@ export default function CheckoutPage() {
                 }}
               >
                 {submitting ? (
-                  <><Loader2 size={15} className="animate-spin" /> Placing Order…</>
+                  <><Loader2 size={15} className="animate-spin" /> {t('جارٍ تأكيد الطلب…', 'Placing Order…')}</>
                 ) : (
-                  <>Place Order — AED {summaryTotal.toLocaleString()}</>
+                  <>{t('تأكيد الطلب', 'Place Order')} — AED {summaryTotal.toLocaleString()}</>
                 )}
               </button>
             )}

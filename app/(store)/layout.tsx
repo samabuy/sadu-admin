@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { StoreShell } from '@/components/store/StoreShell';
+import { LanguageProvider } from '@/components/store/LanguageContext';
 
 export const metadata: Metadata = {
   title: 'SADU | Luxury Arabian Perfumes',
@@ -8,5 +9,9 @@ export const metadata: Metadata = {
 };
 
 export default function StoreLayout({ children }: { children: React.ReactNode }) {
-  return <StoreShell>{children}</StoreShell>;
+  return (
+    <LanguageProvider>
+      <StoreShell>{children}</StoreShell>
+    </LanguageProvider>
+  );
 }

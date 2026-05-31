@@ -36,7 +36,7 @@ export function Navbar() {
   }, []);
 
   const cartCount = mounted ? count : 0;
-  const activeLang = mounted ? lang : 'en';
+  const activeLang = mounted ? lang : 'ar';
 
   function isActive(href: string) {
     if (href === '/') return pathname === '/';

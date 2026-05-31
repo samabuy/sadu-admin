@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
+import { useLangStore } from '@/store/langStore';
 
 const SLIDES = [
   {
@@ -37,6 +38,10 @@ const PATTERN = [
 
 export function HeroSlider() {
   const [current, setCurrent] = useState(0);
+  const [mounted, setMounted] = useState(false);
+  const lang = useLangStore((s) => s.lang);
+  useEffect(() => setMounted(true), []);
+  const activeLang = mounted ? lang : 'ar';
 
   const next = useCallback(() => setCurrent((c) => (c + 1) % SLIDES.length), []);
   const prev = () => setCurrent((c) => (c - 1 + SLIDES.length) % SLIDES.length);
@@ -65,26 +70,16 @@ export function HeroSlider() {
         <div style={{ position: 'absolute', inset: 0, background: slide.glow, pointerEvents: 'none' }} />
 
         <div style={{ textAlign: 'center', position: 'relative', zIndex: 1, padding: '0 40px', maxWidth: 700 }}>
-          <p style={{
-            fontFamily: "'Cairo', sans-serif",
-            fontSize: 14,
-            color: '#C9A84C',
-            marginBottom: 14,
-            opacity: 0.9,
-            letterSpacing: '0.04em',
-          }}>
-            {slide.titleAr}
-          </p>
           <h2 style={{
-            fontFamily: "'Cormorant Garamond', serif",
-            fontSize: 'clamp(30px, 5vw, 62px)',
+            fontFamily: activeLang === 'ar' ? "'Cairo', sans-serif" : "'Cormorant Garamond', serif",
+            fontSize: 'clamp(28px, 5vw, 58px)',
             fontWeight: 600,
             color: '#F6EFE2',
-            lineHeight: 1.15,
+            lineHeight: 1.2,
             marginBottom: 32,
-            letterSpacing: '-0.01em',
+            letterSpacing: activeLang === 'ar' ? '0' : '-0.01em',
           }}>
-            {slide.titleEn}
+            {activeLang === 'ar' ? slide.titleAr : slide.titleEn}
           </h2>
           <Link
             href={slide.href}
@@ -101,7 +96,7 @@ export function HeroSlider() {
               textTransform: 'uppercase',
             }}
           >
-            Shop Now
+            {activeLang === 'ar' ? 'تسوّق الآن' : 'Shop Now'}
           </Link>
         </div>
 
