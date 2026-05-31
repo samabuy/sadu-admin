@@ -45,20 +45,6 @@ export function Navbar() {
 
   return (
     <>
-      {/* Announcement bar — scrolls with page, not sticky */}
-      <div style={{
-        backgroundColor: '#C9A84C',
-        color: '#000',
-        textAlign: 'center',
-        padding: '7px 16px',
-        fontSize: 12,
-        fontWeight: 600,
-        letterSpacing: '0.02em',
-        lineHeight: 1.5,
-      }}>
-        🚚 Free delivery across all 7 Emirates &nbsp;·&nbsp; الشحن المجاني لجميع إمارات الدولة
-      </div>
-
       {/* Main header — sticky */}
       <header style={{
         position: 'sticky',

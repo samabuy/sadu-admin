@@ -145,8 +145,6 @@ export function Footer() {
             </p>
             <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75 }}>
               UAE — All 7 Emirates
-              <br />
-              Free delivery on all orders
             </p>
             <a
               href="https://wa.me/971500000000"
