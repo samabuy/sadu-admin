@@ -221,7 +221,7 @@ export function ProductDetailClient({ product }: Props) {
           </button>
 
           <a
-            href={`https://wa.me/971500000000?text=${waText}`}
+            href={`https://wa.me/971554955153?text=${waText}`}
             target="_blank" rel="noopener noreferrer"
             style={{
               width: '100%', padding: '13px',

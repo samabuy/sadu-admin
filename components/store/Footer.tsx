@@ -71,7 +71,7 @@ export function Footer() {
               {t('أفضل العطور العالمية — تُوصَّل لجميع أنحاء الإمارات.', 'Premium international fragrances — delivered across the UAE.')}
             </p>
             <a
-              href="https://wa.me/971500000000"
+              href="https://wa.me/971554955153"
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -153,7 +153,7 @@ export function Footer() {
               UAE — All 7 Emirates
             </p>
             <a
-              href="https://wa.me/971500000000"
+              href="https://wa.me/971554955153"
               style={{
                 display: 'inline-block',
                 marginTop: 10,
